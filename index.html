@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Mumma ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:linear-gradient(135deg,#ffeef5,#fff7fb,#fffaf5);
+
+overflow:hidden;
+
+color:#6d3557;
+
+}
+
+/* Falling Flowers */
+
+.flower{
+
+position:fixed;
+
+top:-50px;
+
+font-size:25px;
+
+animation:fall linear infinite;
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh) rotate(360deg);
+
+}
+
+}
+
+/* Pages */
+
+.page{
+
+display:none;
+
+width:100%;
+
+height:100vh;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+padding:30px;
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+background:transparent;
+
+z-index:2;
+
+}
+
+.active{
+
+display:flex;
+
+}
+
+/* Headings */
+
+h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:70px;
+
+color:#d63384;
+
+margin-bottom:20px;
+
+}
+
+h2{
+
+font-size:35px;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:20px;
+
+line-height:1.9;
+
+max-width:760px;
+
+text-align:center;
+
+}
+
+/* Buttons */
+
+button{
+
+margin-top:35px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+background:#ff6ea9;
+
+color:white;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:0 10px 25px rgba(255,105,180,.3);
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+/* Envelope */
+
+.envelope{
+
+width:340px;
+
+height:240px;
+
+position:relative;
+
+cursor:pointer;
+
+margin-bottom:40px;
+
+}
+
+.base{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#ffc7da;
+
+border-radius:12px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+.flap{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#ff9bc2;
+
+clip-path:polygon(0 0,100% 0,50% 55%);
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:3;
+
+}
+
+.letter{
+
+position:absolute;
+
+left:12px;
+
+top:12px;
+
+width:316px;
+
+height:216px;
+
+background:white;
+
+border-radius:12px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+transition:1s;
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+color:#d63384;
+
+}
+
+.seal{
+
+width:70px;
+
+height:70px;
+
+background:#ff4d88;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:30px;
+
+color:white;
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+z-index:5;
+
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+.envelope.open .flap{
+
+transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+transform:translateY(-150px);
+
+}
+
+/* Gallery */
+
+.gallery{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+margin-top:30px;
+
+}
+
+.gallery img{
+
+width:220px;
+
+height:300px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+border:8px solid white;
+
+box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* Typing */
+
+#typing{
+
+border-right:3px solid #ff5d9a;
+
+white-space:pre-line;
+
+overflow:hidden;
+
+max-width:760px;
+
+font-size:20px;
+
+line-height:2;
+
+}
+
+</style>
+
+</head>
+
+<!-- ================= PAGE 1 ================= -->
+
+<div class="page active" id="page1">
+
+<div class="envelope" onclick="openEnvelope()">
+
+<div class="base"></div>
+
+<div class="flap"></div>
+
+<div class="letter">
+
+<h2>💌</h2>
+
+<p style="font-size:18px;">A Little Surprise</p>
+
+</div>
+
+<div class="seal">❤️</div>
+
+</div>
+
+<h1>For My Mumma</h1>
+
+<p>
+Click the heart to open a little surprise made with all my love.
+</p>
+
+</div>
+
+
+<!-- ================= PAGE 2 ================= -->
+
+<div class="page" id="page2">
+
+<h1>Dear Mumma ❤️</h1>
+
+<p id="typing"></p>
+
+<button onclick="nextPage('page3')">
+
+Memory Lane 🌷
+
+</button>
+
+</div>
+
+
+<!-- ================= PAGE 3 ================= -->
+
+<div class="page" id="page3">
+
+<h1>Our Beautiful Memories 📸</h1>
+
+<div class="gallery">
+
+<img src="mom1.jpg">
+
+<img src="mom2.jpg">
+
+<img src="mom3.jpg">
+
+</div>
+
+<p style="margin-top:30px;">
+
+Every picture with you reminds me how lucky I am to call you my Mumma.
+
+Thank you for every hug, every smile and every sacrifice.
+
+</p>
+
+<button onclick="nextPage('page4')">
+
+One Last Letter ❤️
+
+</button>
+
+</div>
+
+
+<!-- ================= PAGE 4 ================= -->
+
+<div class="page" id="page4">
+
+<h1>Thank You ❤️</h1>
+
+<p>
+
+You have loved me before I even knew what love meant.
+
+You stood beside me through every happiness,
+
+every mistake,
+
+every achievement,
+
+and every difficult moment.
+
+If someday life feels heavy,
+
+please remember...
+
+You are the heart of our family.
+
+You are my biggest blessing.
+
+You deserve all the happiness this world has to offer.
+
+No matter how old I become,
+
+I'll always be your little child.
+
+I love you forever, Mumma.
+
+❤️
+
+</p>
+
+<button onclick="flowers()">
+
+Love You Forever 🌷
+
+</button>
+
+</div>
+
+<script>
+
+const message = `Dear Mumma,
+
+I know life hasn't been easy lately.
+
+I just wanted to remind you that you are loved more than words can ever express.
+
+Thank you for every sacrifice,
+every prayer,
+every hug,
+and every smile.
+
+You are my strongest person,
+my safest place,
+and my greatest blessing.
+
+Whenever you feel low,
+
+come back to this little corner of the internet.
+
+It was made especially for you.
+
+Love you forever ❤️`;
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < message.length){
+
+document.getElementById("typing").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,35);
+
+}
+
+}
+
+function openEnvelope(){
+
+document.querySelector(".envelope").classList.add("open");
+
+setTimeout(function(){
+
+nextPage("page2");
+
+typeWriter();
+
+},1700);
+
+}
+
+function nextPage(id){
+
+document.querySelectorAll(".page").forEach(function(page){
+
+page.classList.remove("active");
+
+});
+
+document.getElementById(id).classList.add("active");
+
+}
+/* ---------- Falling Tulips ---------- */
+
+function flowers(){
+
+for(let i=0;i<120;i++){
+
+let flower=document.createElement("div");
+
+flower.className="flower";
+
+let arr=["🌷","🌸","💖","✨"];
+
+flower.innerHTML=arr[Math.floor(Math.random()*arr.length)];
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.animationDuration=(4+Math.random()*5)+"s";
+
+flower.style.fontSize=(18+Math.random()*18)+"px";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{
+
+flower.remove();
+
+},9000);
+
+}
+
+}
+
+/* ---------- Background Music ---------- */
+
+let music=new Audio("guitar.mp3");
+
+music.loop=true;
+
+music.volume=0.4;
+
+document.body.addEventListener("click",function(){
+
+music.play().catch(()=>{});
+
+},{once:true});
+
+</script>
+
+<script>
+
+/* Floating flowers continuously */
+
+setInterval(()=>{
+
+let flower=document.createElement("div");
+
+flower.className="flower";
+
+flower.innerHTML="🌷";
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.animationDuration=(5+Math.random()*4)+"s";
+
+flower.style.fontSize=(18+Math.random()*15)+"px";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>flower.remove(),9000);
+
+},700);
+
+</script>
+
+</body>
+
+</html>
